@@ -11,7 +11,7 @@ variable "project" {
 
 variable "zone" {
   type        = string
-  default     = ""
+  default     = "europe-west2"
   description = "Optional: The GCP zone to the deploy the note book instance into"
 }
 
@@ -69,13 +69,13 @@ variable "data_disk_size_gb" {
   description = "Optional:  The size in GB of the non-boot disk"
 }
 
-variable "notebook_network" {
+variable "notebook_network_name" {
   type        = string
   default     = "notebook-vpc"
   description = "Optional: The name of the VPC to deploy this instance is in"
 }
 
-variable "notebook_sub_network" {
+variable "notebook_sub_network_self_link" {
   type        = string
   default     = ""
   description = "Optional: The name of the subnet to deploy this instance is in"
@@ -83,13 +83,13 @@ variable "notebook_sub_network" {
 
 variable "accelerator_config_type" {
   type        = string
-  default     = "ACCELERATOR_TYPE_UNSPECIFIED"
+  default     = "NVIDIA_TESLA_T4"
   description = "Type of accelerator. For values see: https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/notebooks_instance#type"
 }
 
 variable "accelerator_config_core_count" {
   type        = number
-  default     = 0
+  default     = 1
   description = "The number of cores for this accelerator"
 }
 

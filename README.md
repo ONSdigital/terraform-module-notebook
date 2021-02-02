@@ -20,8 +20,8 @@ See: [Changelog](./CHANGELOG.md)
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| accelerator\_config\_core\_count | The number of cores for this accelerator | `number` | `0` | no |
-| accelerator\_config\_type | Type of accelerator. For values see: https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/notebooks_instance#type | `string` | `""` | no |
+| accelerator\_config\_core\_count | The number of cores for this accelerator | `number` | `1` | no |
+| accelerator\_config\_type | Type of accelerator. For values see: https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/notebooks_instance#type | `string` | `"NVIDIA_TESLA_T4"` | no |
 | boot\_disk\_size\_gb | Optional: Size in GB of boot disk | `number` | `50` | no |
 | boot\_disk\_type | Optional: Boot disk type for notebook instance | `string` | `"PD_STANDARD"` | no |
 | data\_disk\_size\_gb | Optional:  The size in GB of the non-boot disk | `number` | `1` | no |
@@ -31,13 +31,13 @@ See: [Changelog](./CHANGELOG.md)
 | labels | Optional: Additional labels for the notebook | `map` | `{}` | no |
 | machine\_type | Optional: The machine type of the notebook instance. For other options, see: https://cloud.google.com/compute/docs/machine-types | `string` | `"n1-standard-1"` | no |
 | name | The name of the notebook instance | `string` | n/a | yes |
-| notebook\_network | Optional: The name of the VPC to deploy this instance is in | `string` | `"notebook-vpc"` | no |
-| notebook\_sub\_network | Optional: The name of the subnet to deploy this instance is in | `string` | `""` | no |
+| notebook\_network\_name | Optional: The name of the VPC to deploy this instance is in | `string` | `"notebook-vpc"` | no |
+| notebook\_sub\_network\_self\_link | Optional: The name of the subnet to deploy this instance is in | `string` | `""` | no |
 | project | Optional: The GCP project to deploy the notebook instance into | `string` | `""` | no |
 | service\_account | Optional: A service account within the same project to run the instance as | `string` | `""` | no |
 | vm\_image\_image\_family | Optional: Use this VM image family to find the image; the newest image in this family will be used. See: [Notebook Images](https://cloud.google.com/ai-platform/deep-learning-vm/docs/images) | `string` | `"pytorch-latest-cpu"` | no |
 | vm\_image\_project | Optional: The name of the Google Cloud project that this VM image belongs to. Format: projects/{project\_id} | `string` | `"deeplearning-platform-release"` | no |
-| zone | Optional: The GCP zone to the deploy the note book instance into | `string` | `""` | no |
+| zone | Optional: The GCP zone to the deploy the note book instance into | `string` | `"europe-west2"` | no |
 
 
 ## Outputs
@@ -88,4 +88,17 @@ terraform plan
 terraform apply
 ```
 
+## Contributing 
+
+__To Review__
+
+1. Checkout feature branch
+2. Enter your project name [here](review/main.tf#L2) and your state bucket name [here](review/main.tf#L19)
+2. `cd review && terraform init`
+2. Run terraform i.e `terraform <plan/apply>`
+3. Head over to the [Notebook console](https://console.cloud.google.com/ai/platform/notebooks/list/instances) and open __JUPYTER_LAB__ on your notebook
+4. Check changes related to feature
+5. Clear up; `terraform destroy` and `git checkout review/main.tf`
+
+---
 TODO: Integrate map of image_families

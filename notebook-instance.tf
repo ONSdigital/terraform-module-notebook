@@ -1,7 +1,7 @@
 locals {
   r_image_family                 = "r-3-6-cpu-experimental"
   compute_engine_service_account = "${data.google_project.notebook_project.number}-compute@developer.gserviceaccount.com"
-  post_startup_script_url        = "${google_storage_bucket.notebook_bucket[0].url}/${google_storage_bucket_object.notebook_instance_post_startup_script[0].output_name}"
+  post_startup_script_url        = "${google_storage_bucket.notebook_bucket.url}/${google_storage_bucket_object.notebook_instance_post_startup_script.output_name}"
   required_labels = {
     shutdown = "true"
   }
@@ -11,7 +11,7 @@ resource "google_notebooks_instance" "notebook_instance_vm" {
   provider = google-beta
 
   name         = var.name
-  location     = length(var.zone) > 0 ? var.zone : data.google_compute_zones.notebook_zone.names[0]
+  location     = "${var.zone}-a"
   machine_type = var.machine_type
 
   vm_image {
@@ -37,7 +37,7 @@ resource "google_notebooks_instance" "notebook_instance_vm" {
   no_proxy_access = false
 
   network = data.google_compute_network.notebook_network.self_link
-  subnet  = length(var.notebook_sub_network) > 0 ? var.notebook_sub_network : element(data.google_compute_network.notebook_network.subnetworks_self_links, 0)
+  subnet  = length(var.notebook_sub_network_self_link) > 0 ? var.notebook_sub_network_self_link : element(data.google_compute_network.notebook_network.subnetworks_self_links, 0)
 
   post_startup_script = local.post_startup_script_url
 
