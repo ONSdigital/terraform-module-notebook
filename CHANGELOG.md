@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.1.4] - 2021-02-02
+## Remove Unnecessary Logic [Jira Ticket](https://collaborate2.ons.gov.uk/jira/browse/CATDDSC-52)
+- Removed unnecessary `count` expressions used for post startup script which is now executed regardless. ref **Notebook Git Config**
+- Added `review/main.tf` for the purpose of reviewing changes to this module
+- Assigned `var.zone` the default value `europe-west2`
+
 ## [0.1.3] - 2021-01-25
 ## Relocate Notebook Module [Jira Ticket](https://collaborate2.ons.gov.uk/jira/browse/CATDDSC-52)
 - Amended docs to reflect change of source
