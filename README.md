@@ -34,7 +34,8 @@ See: [Changelog](./CHANGELOG.md)
 | notebook\_network\_name | Optional: The name of the VPC to deploy this instance is in | `string` | `"notebook-vpc"` | no |
 | notebook\_sub\_network\_self\_link | Optional: The name of the subnet to deploy this instance is in | `string` | `""` | no |
 | project | Optional: The GCP project to deploy the notebook instance into | `string` | `""` | no |
-| service\_account | Optional: A service account within the same project to run the instance as | `string` | `""` | no |
+| role\_id | Optional: The role to assign to the notebook service account. **Note** Requires `service_account_email` to be specified | `string` | `""` | no |
+| service\_account\_email | Optional: The service account email to run the notebook instance as | `string` | `""` | no |
 | vm\_image\_image\_family | Optional: Use this VM image family to find the image; the newest image in this family will be used. See: [Notebook Images](https://cloud.google.com/ai-platform/deep-learning-vm/docs/images) | `string` | `"pytorch-latest-cpu"` | no |
 | vm\_image\_project | Optional: The name of the Google Cloud project that this VM image belongs to. Format: projects/{project\_id} | `string` | `"deeplearning-platform-release"` | no |
 | zone | Optional: The GCP zone to the deploy the note book instance into | `string` | `"europe-west2"` | no |
@@ -81,6 +82,27 @@ module "dans_r_notebook" {
 }
 ```
 
+Notebook with service account and role assigned to the notebook instance
+
+```terraform
+module "service_account_1_notebook" {
+  source                         = "github.com/ONSdigital/terraform-module-notebook"
+  name                           = "service-account-1-review-notebook"
+  notebook_network_name          = google_compute_network.network.name
+  notebook_sub_network_self_link = google_compute_subnetwork.subnet.self_link
+  service_account_email          = google_service_account.service_account_1.email
+  role_id                        = google_project_iam_custom_role.notebook_user_role.id
+
+  git_config = {
+    email = "service.account1@ons.gov.uk",
+    name  = "service account1"
+  }
+}
+```
+
+**Note**
+Terraform may complain about the role id not being computed at the time of apply. In which case you will need to deploy 
+The custom role first before the notebook using the role
 
 ```shell
 terraform init

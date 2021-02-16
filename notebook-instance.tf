@@ -24,7 +24,7 @@ resource "google_notebooks_instance" "notebook_instance_vm" {
     type       = var.accelerator_config_type
   }
 
-  service_account = length(var.service_account) > 0 ? var.service_account : local.compute_engine_service_account
+  service_account = length(var.service_account_email) > 0 ? var.service_account_email : local.compute_engine_service_account
 
   install_gpu_driver = var.install_gpu_driver
 

@@ -33,10 +33,10 @@ variable "vm_image_image_family" {
   description = "Optional: Use this VM image family to find the image; the newest image in this family will be used. See: https://cloud.google.com/ai-platform/deep-learning-vm/docs/images"
 }
 
-variable "service_account" {
+variable "service_account_email" {
   type        = string
   default     = ""
-  description = "Optional: A service account within the same project to run the instance as"
+  description = "Optional: The service account email to run the notebook instance as"
 }
 
 variable "install_gpu_driver" {
@@ -102,4 +102,10 @@ variable "labels" {
 variable "git_config" {
   type        = map(string)
   description = "Required: The notebook user's name and email address to set name and email in git config"
+}
+
+variable "role_id" {
+  type        = string
+  default     = ""
+  description = "Optional: The role to assign to the notebook service account. Requires `service_account_email` to be specified"
 }
