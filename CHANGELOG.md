@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.1.5] - 2021-02-24
+## Create Python PyTorch notebooks for EH team [Jira Ticket](https://collaborate2.ons.gov.uk/jira/browse/CATDDSC-101)
+- Added new __OPTIONAL__ variable (`startup_script`) to allow a custom startup script to be specified
+
 ## [0.1.4] - 2021-02-02
 ## Remove Unnecessary Logic [Jira Ticket](https://collaborate2.ons.gov.uk/jira/browse/CATDDSC-52)
 - Removed unnecessary `count` expressions used for post startup script which is now executed regardless. ref **Notebook Git Config**
