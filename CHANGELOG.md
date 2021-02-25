@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.1.6] - 2021-02-25
+## Create Python PyTorch notebooks for EH team [Jira Ticket](https://collaborate2.ons.gov.uk/jira/browse/CATDDSC-101)
+- Added new __OPTIONAL__ variable (`startup_script_path`) to allow a custom startup script to be specified
+
 ## [0.1.5] - 2021-02-16
 ## Notebook: Role Binding [Jira Ticket](https://collaborate2.ons.gov.uk/jira/browse/CATDDSC-84)
 - Add a single binding for a service account to the created notebook instance and associated resources

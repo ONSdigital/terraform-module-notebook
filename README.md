@@ -34,8 +34,10 @@ See: [Changelog](./CHANGELOG.md)
 | notebook\_network\_name | Optional: The name of the VPC to deploy this instance is in | `string` | `"notebook-vpc"` | no |
 | notebook\_sub\_network\_self\_link | Optional: The name of the subnet to deploy this instance is in | `string` | `""` | no |
 | project | Optional: The GCP project to deploy the notebook instance into | `string` | `""` | no |
+| service\_account | Optional: A service account within the same project to run the instance as | `string` | `""` | no |
 | role\_id | Optional: The role to assign to the notebook service account. **Note** Requires `service_account_email` to be specified | `string` | `""` | no |
 | service\_account\_email | Optional: The service account email to run the notebook instance as | `string` | `""` | no |
+| startup\_script\_path | Optional: Specify the path of a custom startup script | `string` | n/a | no |
 | vm\_image\_image\_family | Optional: Use this VM image family to find the image; the newest image in this family will be used. See: [Notebook Images](https://cloud.google.com/ai-platform/deep-learning-vm/docs/images) | `string` | `"pytorch-latest-cpu"` | no |
 | vm\_image\_project | Optional: The name of the Google Cloud project that this VM image belongs to. Format: projects/{project\_id} | `string` | `"deeplearning-platform-release"` | no |
 | zone | Optional: The GCP zone to the deploy the note book instance into | `string` | `"europe-west2"` | no |

@@ -104,6 +104,12 @@ variable "git_config" {
   description = "Required: The notebook user's name and email address to set name and email in git config"
 }
 
+variable "startup_script_path" {
+  type        = string
+  default     = "default.sh"
+  description = "Optional: Specify the path of a custom startup script"
+}
+
 variable "role_id" {
   type        = string
   default     = ""
