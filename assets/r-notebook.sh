@@ -43,4 +43,4 @@ Rscript -e 'install.packages("INLA",repos=c(getOption("repos"),INLA="https://inl
 
 Rscript -e 'install.packages("shiny", repos="https://cloud.r-project.org")'
 Rscript -e 'install.packages("leaflet", repos="https://cloud.r-project.org")'
-Rscript -e 'install.packages("RColorBrewer", repos="https://cloud.r-project.org")'
+New line
