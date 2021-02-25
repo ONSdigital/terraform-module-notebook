@@ -107,5 +107,5 @@ variable "git_config" {
 variable "startup_script_path" {
   type        = string
   default     = "default.sh"
-  description = "Optional: Specify an alternative startup script from assets folder"
+  description = "Optional: Specify the path of a custom startup script"
 }
