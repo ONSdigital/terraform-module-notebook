@@ -1,6 +1,6 @@
 locals {
-  default_startup_script  = var.vm_image_image_family == local.r_image_family ? templatefile("${path.module}/assets/r-notebook.sh", var.git_config) : templatefile("${path.module}/assets/py-notebook.sh", var.git_config)
-  custom_startup_script   = var.startup_script_path != "default.sh" ? templatefile(var.startup_script_path, var.git_config) : ""
+  default_startup_script = var.vm_image_image_family == local.r_image_family ? templatefile("${path.module}/assets/r-notebook.sh", var.git_config) : templatefile("${path.module}/assets/py-notebook.sh", var.git_config)
+  custom_startup_script  = var.startup_script_path != "default.sh" ? templatefile(var.startup_script_path, var.git_config) : ""
 }
 
 resource "google_storage_bucket" "notebook_bucket" {
