@@ -19,14 +19,17 @@ resource "google_notebooks_instance" "notebook_instance_vm" {
     image_family = var.vm_image_image_family
   }
 
-  accelerator_config {
-    core_count = var.accelerator_config_core_count
-    type       = var.accelerator_config_type
+  dynamic "accelerator_config" {
+    for_each = var.enable_gpu ? [1] : []
+    content {
+      core_count = var.accelerator_config_core_count
+      type       = var.accelerator_config_type
+    }
   }
 
   service_account = length(var.service_account_email) > 0 ? var.service_account_email : local.compute_engine_service_account
 
-  install_gpu_driver = var.install_gpu_driver
+  install_gpu_driver = var.enable_gpu
 
   boot_disk_type    = var.boot_disk_type
   boot_disk_size_gb = var.boot_disk_size_gb
@@ -48,3 +51,4 @@ resource "google_notebooks_instance" "notebook_instance_vm" {
     proxy-mode = "service_account"
   }
 }
+

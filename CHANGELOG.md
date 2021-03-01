@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.1.7] - 2021-03-01
+## Make GPU optional for new notebook [Jira Ticket](https://collaborate2.ons.gov.uk/jira/browse/CATDDSC-136)
+- Added new __OPTIONAL__ variable (`enable_gpu`) to allow a notebook to be created with or without a GPU
+
 ## [0.1.6] - 2021-02-25
 ## Create Python PyTorch notebooks for EH team [Jira Ticket](https://collaborate2.ons.gov.uk/jira/browse/CATDDSC-101)
 - Added new __OPTIONAL__ variable (`startup_script_path`) to allow a custom startup script to be specified
