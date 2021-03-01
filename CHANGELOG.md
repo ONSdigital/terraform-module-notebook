@@ -6,7 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [0.1.7] - 2021-03-01
 ## Make GPU optional for new notebook [Jira Ticket](https://collaborate2.ons.gov.uk/jira/browse/CATDDSC-136)
-- Added new __OPTIONAL__ variable (`enable_gpu`) to allow a notebook to be created with or without a GPU
+- Added new __OPTIONAL__ variable (`enable_gpu`) to allow a notebook to be created with or without a GPU. 
+- Default value for __OPTIONAL__ variable (`install_gpu_driver`) is now false.
 
 ## [0.1.6] - 2021-02-25
 ## Create Python PyTorch notebooks for EH team [Jira Ticket](https://collaborate2.ons.gov.uk/jira/browse/CATDDSC-101)
