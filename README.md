@@ -26,8 +26,9 @@ See: [Changelog](./CHANGELOG.md)
 | boot\_disk\_type | Optional: Boot disk type for notebook instance | `string` | `"PD_STANDARD"` | no |
 | data\_disk\_size\_gb | Optional:  The size in GB of the non-boot disk | `number` | `1` | no |
 | data\_disk\_type | Optional: Boot disk type | `string` | `"DISK_TYPE_UNSPECIFIED"` | no |
+| enable\_gpu | Optional: Whether or not to enable GPU | `bool` | `false` | no  |
 | git\_config | Required: The notebook user's name and email address to set name and email in git config | `map(string)` | n/a | yes |
-| install\_gpu\_driver | Optional: Whether or not to install the GPU driver | `bool` | `true` | no |
+| install\_gpu\_driver | Optional: Whether or not to install the GPU driver | `bool` | `false` | no |
 | labels | Optional: Additional labels for the notebook | `map` | `{}` | no |
 | machine\_type | Optional: The machine type of the notebook instance. For other options, see: https://cloud.google.com/compute/docs/machine-types | `string` | `"n1-standard-1"` | no |
 | name | The name of the notebook instance | `string` | n/a | yes |

@@ -41,7 +41,7 @@ variable "service_account_email" {
 
 variable "install_gpu_driver" {
   type        = bool
-  default     = true
+  default     = false
   description = "Optional: Whether or not to install the GPU driver"
 }
 
@@ -114,4 +114,10 @@ variable "role_id" {
   type        = string
   default     = ""
   description = "Optional: The role to assign to the notebook service account. Requires `service_account_email` to be specified"
+}
+
+variable "enable_gpu" {
+  type        = bool
+  default     = false
+  description = "Optional: If set to true then the notebook will include a GPU"
 }
