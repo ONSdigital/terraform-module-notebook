@@ -4,6 +4,7 @@ locals {
   post_startup_script_url        = "${google_storage_bucket.notebook_bucket.url}/${google_storage_bucket_object.notebook_instance_post_startup_script.output_name}"
   required_labels = {
     shutdown = "true"
+    goog-caip-notebook = ""
   }
 }
 
