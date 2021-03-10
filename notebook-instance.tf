@@ -3,7 +3,7 @@ locals {
   compute_engine_service_account = "${data.google_project.notebook_project.number}-compute@developer.gserviceaccount.com"
   post_startup_script_url        = "${google_storage_bucket.notebook_bucket.url}/${google_storage_bucket_object.notebook_instance_post_startup_script.output_name}"
   required_labels = {
-    shutdown = "true"
+    shutdown           = "true"
     goog-caip-notebook = ""
   }
 }
