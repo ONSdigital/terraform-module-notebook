@@ -37,7 +37,7 @@ resource "google_notebooks_instance" "notebook_instance_vm" {
   data_disk_type    = var.data_disk_type
   data_disk_size_gb = var.data_disk_size_gb
 
-  no_public_ip    = false
+  no_public_ip    = true
   no_proxy_access = false
 
   network = data.google_compute_network.notebook_network.self_link
