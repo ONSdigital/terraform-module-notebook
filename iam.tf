@@ -20,6 +20,6 @@ resource "google_notebooks_instance_iam_member" "notebook_instance_service_accou
 }
 
 resource "google_service_account" "generated_service_account" {
-  count = length(var.service_account_email) > 0 ? 0 : 1
+  count      = length(var.service_account_email) > 0 ? 0 : 1
   account_id = var.name
 }
