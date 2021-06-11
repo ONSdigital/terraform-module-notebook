@@ -28,7 +28,7 @@ resource "google_notebooks_instance" "notebook_instance_vm" {
     }
   }
 
-  service_account = length(var.service_account_email) > 0 ? var.service_account_email : google_service_account.generated_service_account.email
+  service_account = length(var.service_account_email) > 0 ? var.service_account_email : google_service_account.generated_service_account[0].email
 
   install_gpu_driver = var.enable_gpu
 

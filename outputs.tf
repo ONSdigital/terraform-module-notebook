@@ -15,5 +15,5 @@ output "notebook_labels" {
 }
 
 output "notebook_service_account_email" {
-  value = length(var.service_account_email) > 0 ? var.service_account_email : google_service_account.generated_service_account.email
+  value = length(var.service_account_email) > 0 ? var.service_account_email : google_service_account.generated_service_account[0].email
 }
