@@ -121,3 +121,9 @@ variable "enable_gpu" {
   default     = false
   description = "Optional: If set to true then the notebook will include a GPU"
 }
+
+variable "retain_disk" {
+  type        = bool
+  default     = false
+  description = "Optional: If set to true the data disk will be retained when the notebook is deleted."
+}

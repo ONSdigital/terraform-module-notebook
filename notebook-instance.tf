@@ -32,10 +32,11 @@ resource "google_notebooks_instance" "notebook_instance_vm" {
 
   install_gpu_driver = var.enable_gpu
 
-  boot_disk_type    = var.boot_disk_type
-  boot_disk_size_gb = var.boot_disk_size_gb
-  data_disk_type    = var.data_disk_type
-  data_disk_size_gb = var.data_disk_size_gb
+  boot_disk_type      = var.boot_disk_type
+  boot_disk_size_gb   = var.boot_disk_size_gb
+  data_disk_type      = var.data_disk_type
+  data_disk_size_gb   = var.data_disk_size_gb
+  no_remove_data_disk = var.retain_disk
 
   no_public_ip    = true
   no_proxy_access = false
