@@ -42,7 +42,7 @@ See: [Changelog](./CHANGELOG.md)
 | vm\_image\_image\_family | Optional: Use this VM image family to find the image; the newest image in this family will be used. See: [Notebook Images](https://cloud.google.com/ai-platform/deep-learning-vm/docs/images) | `string` | `"pytorch-latest-cpu"` | no |
 | vm\_image\_project | Optional: The name of the Google Cloud project that this VM image belongs to. Format: projects/{project\_id} | `string` | `"deeplearning-platform-release"` | no |
 | zone | Optional: The GCP zone to the deploy the note book instance into | `string` | `"europe-west2"` | no |
-
+| retain_disk | Optional: If set to true the data disk for the notebook will be retained after deletion | `boolean` | `"false"` | no |
 
 ## Outputs
 
