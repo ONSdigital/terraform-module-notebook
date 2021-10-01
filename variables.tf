@@ -127,3 +127,9 @@ variable "retain_disk" {
   default     = false
   description = "Optional: If set to true the data disk will be retained when the notebook is deleted."
 }
+
+variable "disable_downloads" {
+  type        = bool
+  default     = false
+  description = "Optional: If set to true the download option will be disabled"
+}
