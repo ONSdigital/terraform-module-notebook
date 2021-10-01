@@ -48,9 +48,16 @@ resource "google_notebooks_instance" "notebook_instance_vm" {
 
   labels = merge(local.required_labels, var.labels)
 
-  metadata = {
-    terraform  = "true"
-    proxy-mode = "service_account"
-  }
+  metadata = (
+    var.disable_downloads ?
+    {
+      terraform                  = "true"
+      proxy-mode                 = "service_account"
+      notebook-disable-downloads = true
+    } :
+    {
+      terraform  = "true"
+      proxy-mode = "service_account"
+    }
+  )
 }
-
