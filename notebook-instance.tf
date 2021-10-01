@@ -51,8 +51,8 @@ resource "google_notebooks_instance" "notebook_instance_vm" {
   metadata = (
     var.disable_downloads ?
     {
-      terraform  = "true"
-      proxy-mode = "service_account"
+      terraform                  = "true"
+      proxy-mode                 = "service_account"
       notebook-disable-downloads = true
     } :
     {
