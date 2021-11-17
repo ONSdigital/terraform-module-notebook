@@ -133,3 +133,9 @@ variable "disable_downloads" {
   default     = false
   description = "Optional: If set to true the download option will be disabled"
 }
+
+variable "secure_boot" {
+  type        = bool
+  default     = false
+  description = "Optional: If set to true secure boot will we enabled"
+}

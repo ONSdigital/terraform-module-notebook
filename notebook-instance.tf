@@ -9,7 +9,7 @@ locals {
 }
 
 resource "google_notebooks_instance" "notebook_instance_vm" {
-  provider = google-beta
+  provider = google
 
   name         = var.name
   location     = "${var.zone}-a"
@@ -18,6 +18,12 @@ resource "google_notebooks_instance" "notebook_instance_vm" {
   vm_image {
     project      = var.vm_image_project
     image_family = var.vm_image_image_family
+  }
+
+  shielded_instance_config {
+    enable_secure_boot = var.secure_boot
+    enable_integrity_monitoring = true
+    enable_vtpm = true
   }
 
   dynamic "accelerator_config" {
