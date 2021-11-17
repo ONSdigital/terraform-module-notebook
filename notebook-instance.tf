@@ -21,9 +21,9 @@ resource "google_notebooks_instance" "notebook_instance_vm" {
   }
 
   shielded_instance_config {
-    enable_secure_boot = var.secure_boot
+    enable_secure_boot          = var.secure_boot
     enable_integrity_monitoring = true
-    enable_vtpm = true
+    enable_vtpm                 = true
   }
 
   dynamic "accelerator_config" {
