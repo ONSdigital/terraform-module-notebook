@@ -55,12 +55,18 @@ resource "google_notebooks_instance" "notebook_instance_vm" {
   labels = merge(local.required_labels, var.labels)
 
   metadata = (
+  var.disable_downloads && var.block_project_wide_ssh_keys ? #Check both of these together to not force rebuild of existing notebooks
+  {
+    terraform                  = "true"
+    proxy-mode                 = "service_account"
+    notebook-disable-downloads = true
+    block-project-ssh-keys     = true
+  } :
     var.disable_downloads ?
     {
       terraform                  = "true"
       proxy-mode                 = "service_account"
       notebook-disable-downloads = true
-      block-project-ssh-keys     = true #Added to disable downloads block as all notebooks with downloads disabled should also have this set
     } :
     {
       terraform  = "true"
