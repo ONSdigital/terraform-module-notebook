@@ -60,6 +60,7 @@ resource "google_notebooks_instance" "notebook_instance_vm" {
       terraform                  = "true"
       proxy-mode                 = "service_account"
       notebook-disable-downloads = true
+      block-project-ssh-keys     = true #Added to disable downloads block as all notebooks with downloads disabled should also have this set
     } :
     {
       terraform  = "true"
