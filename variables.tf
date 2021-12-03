@@ -139,3 +139,9 @@ variable "secure_boot" {
   default     = false
   description = "Optional: If set to true secure boot will we enabled"
 }
+
+variable "block_project_wide_ssh_keys" {
+  type        = bool
+  default     = false
+  description = "Optional: If set to true project wide ssh keys will be blocked"
+}
