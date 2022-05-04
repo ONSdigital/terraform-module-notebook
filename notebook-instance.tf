@@ -61,6 +61,7 @@ resource "google_notebooks_instance" "notebook_instance_vm" {
       proxy-mode                 = "service_account"
       notebook-disable-downloads = true
       block-project-ssh-keys     = true
+      report-notebook-metrics    = "true"
     } :
     var.disable_downloads ?
     {
